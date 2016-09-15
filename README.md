@@ -9,33 +9,30 @@
 * [Java runtime](http://java.com/en/download/manual.jsp)
 * Firefox
 * [Selenium standalone server](http://www.seleniumhq.org/)
-* php CURL extension
-* [Codeception](http://codeception.com/quickstart) (phar)
+* php v5.6+ with CURL extension
+* [Codeception](http://codeception.com/quickstart) (global install) 
 
 ### Run on localhost
 * 1. Clone the repo
 ```
-git clone --depth 1 https://github.com/ankurk91/codeception-travis-ci-example.git
+git clone https://github.com/ankurk91/codeception-travis-ci-example.git
 cd codeception-travis-ci-example
 ```
 * 2. Install dependencies
 ```
 composer install
-# If you have codecept.phar installed globally skip this
-wget -c -nc --retry-connrefused --tries=0 http://codeception.com/codecept.phar
-chmod +x codecept.phar
 ```
 * 3. Run php inbuilt server, allow port 8000 in your firewall
 ```
-php -S www.myapp.dev:8000 -t app
+php -S localhost:8000 -t app
 ```
 * 4. In a new tab - Run selenium server (requires java JRE)
 ```
 java -jar selenium-server-standalone.jar
 ```
-* 5. Finally execute tests on Firefox (default)
+* 5. In a new tab - Execute tests on Firefox (default)
 ```
-php codecept.phar run
+codecept run
 ```
 
 ### Google Chrome
@@ -47,9 +44,9 @@ php codecept.phar run
 ```
  java -jar selenium-server-standalone.jar -Dwebdriver.chrome.driver=/full/path/to/chromedriver
 ```
-* 5. Execute tests on chrome
+* 5. In a new tab - Execute tests on chrome
 ```
-php codecept.phar run --env chrome
+codecept run --env chrome
 ```
 
 ### Quick Links
